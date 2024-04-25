@@ -18,7 +18,7 @@ class User(Base):
     email = Column(String(250), nullable=False, unique=True)
 
 class Character(Base):
-    __tablename__ = 'addresscharacter'
+    __tablename__ = 'character'
     # Here we define columns for the table address.
     # Notice that each column is also a normal Python instance attribute.
     id = Column(Integer, primary_key=True)
@@ -47,7 +47,7 @@ class Favorites(Base):
     # Here we define columns for the table address.
     # Notice that each column is also a normal Python instance attribute.
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey('person.id'))
+    user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
     character_id = Column(Integer, ForeignKey('character.id'))
     character = relationship(Character)
